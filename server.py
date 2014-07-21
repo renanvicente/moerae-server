@@ -26,7 +26,7 @@ class MyTCPHandler(BaseRequestHandler):
 if __name__ == "__main__":
     HOST, PORT = "0.0.0.0", 8888
 
-    # Create the server, binding to localhost on port 9999
+    # Create the server, binding to localhost on port 8888
     server = TCPServer((HOST, PORT), MyTCPHandler)
 
     # Activate the server; this will keep running until you
