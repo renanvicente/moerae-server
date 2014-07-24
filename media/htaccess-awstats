@@ -1,6 +1,0 @@
-AuthType basic
-AuthUserFile /etc/apache2/awstats.passwd
-AuthName awstats
-require valid-user
-#satisfy any
-
