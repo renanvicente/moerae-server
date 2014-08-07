@@ -4,9 +4,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'moerae.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
+    url(r'api/data', 'app.views.data'),
+    url(r'catalog/data', 'app.views.catalogData'),
+    url(r'^$', 'app.views.index'),
+    url(r'^generate_catalog/$', 'app.views.generateCatalog'),
+    url(r'^hostname/(?P<slug>[-\w]+)/$', 'app.views.hostname_page'),
     url(r'^admin/', include(admin.site.urls)),
 )

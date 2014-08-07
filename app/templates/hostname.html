@@ -1,0 +1,28 @@
+{% extends 'base-bootstrap.html' %}
+{% block title %}Packages to update at {{ slug }} {% endblock %}
+{% block content %}
+<h2 class="sub-header">Packages to update at {{ slug }}</h2>
+
+
+<div class="form-group">
+
+  <select name="packagelist[]" multiple class="form-control" form="packageform">
+    {% for package in data.packagelistform %}
+      <option value="{{ package }}">{{ package }}</option>
+    {% endfor %}
+  </select>
+
+</div>
+<div class="form-group">
+  <form action='/test/' method='POST' id="packageform">
+    {% csrf_token %}
+    <p>
+	<input type="hidden" name="hostname" value={{ slug }}>
+	<input type="hidden" name="ip" value={{ packages.values.0.ip }}>
+        <button type="submit" class="btn btn-primary">Upgrade</button>
+        <button type="button" onclick="window.location.href='/'" class="btn btn-primary">Back</button>
+    </p>
+  </form>
+</div>
+
+{% endblock %}
